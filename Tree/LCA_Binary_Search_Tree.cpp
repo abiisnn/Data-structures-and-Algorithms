@@ -11,12 +11,13 @@ struct Node {
 /* Return true if some children of root has the 
    same value than n Node. */
 bool specialCase(Node *root, Node *n) {
+    if(!root) return false;
     if(root->left) {
-        if(root->left->data == n->data) 
+        if(root->left == n) 
             return true;
     }
     if(root->right) {
-        if(root->right->data == n->data) 
+        if(root->right == n) 
             return true;
     }
     return false;
@@ -26,11 +27,11 @@ bool specialCase(Node *root, Node *n) {
 Node *LCAfunc(Node *root,  Node *n1,  Node *n2) {
     if(root == NULL) return NULL;
  
-    if(root->data == n1->data) {
+    if(root == n1) {
         if(specialCase(root, n2)) 
             return root;
     }
-    if(root->data == n2->data) {
+    if(root == n2) {
         if(specialCase(root, n1)) 
             return root;
     }
@@ -45,7 +46,7 @@ Node *LCAfunc(Node *root,  Node *n1,  Node *n2) {
 /* Return true if Node n exist in the BST */
 bool exist(Node *root, Node *n) {
     if(root == NULL) return false;
-    if(root->data == n->data) return true;
+    if(root == n) return true;
 
     if(n->data > root->data) {
         if(exist(root->right, n)) return true;
@@ -89,7 +90,7 @@ int main() {
             3     9
           1  4   8  10
 */
-    Node *ans = lca(root, nine, eleven);
+    Node *ans = lca(root, five, ten);
     if(ans) cout << ans->data << endl;
     else cout << "Some node doesnt exist" << endl;
 }
