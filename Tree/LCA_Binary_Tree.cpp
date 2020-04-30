@@ -11,7 +11,7 @@ struct Node {
    save the path in the vector. */
 bool getPath(Node *root, Node *n, vector<Node *> &path) {
     if(!root) return false; // if(root == NULL)
-    if(root == n) {
+    if(root->data == n->data) {
         path.push_back(root);
         return true;
     }
