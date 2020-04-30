@@ -46,7 +46,7 @@ Node *LCAfunc(Node *root,  Node *n1,  Node *n2) {
 /* Return true if Node n exist in the BST */
 bool exist(Node *root, Node *n) {
     if(root == NULL) return false;
-    if(root == n) return true;
+    if(root->data == n->data) return true;
 
     if(n->data > root->data) {
         if(exist(root->right, n)) return true;
