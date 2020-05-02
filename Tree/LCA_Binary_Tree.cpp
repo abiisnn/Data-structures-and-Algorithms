@@ -18,7 +18,7 @@ bool getPath(Node *root, Node *n, vector<Node *> &path) {
     if(getPath(root->left, n, path) or getPath(root->right, n, path)) {
         path.push_back(root);
         return true;
-    } 
+    }
   return false;
 }
 /* Return NULL if some path is empty, in other case 
