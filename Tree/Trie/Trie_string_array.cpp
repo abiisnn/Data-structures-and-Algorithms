@@ -1,7 +1,11 @@
+/* Abigail Nicolas Sayago.
+	This is a basic implementation of a trie structure,
+	in the worse case we are going to use a lot of 
+	memory.
+*/
 #include<bits/stdc++.h>
-using namespace std;
-
 #define MAX 26
+using namespace std;
 int differents = 0;
 struct TrieNode {
 	TrieNode *children[MAX];
@@ -21,6 +25,7 @@ void insert(TrieNode *root, string target) {
 		}
 		current = current->children[pos];
 	}
+	cout << "aqui pongo que es fin: " << current->children.first << endl;
 	current->isEnd = true;
 	current->frec++;
 }
